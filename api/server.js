@@ -8,6 +8,9 @@ const projectsRouter = require('./projects/projects-router')
 server.use(express.json())
 server.use('/api/actions', actionsRouter)
 server.use('/api/projects', projectsRouter)
+server.get('/', (req, res) => {
+    res.send('Welcome!')
+})
 server.use((err, req, res, next) => {
     console.log(err)
     res.status(500).json({
